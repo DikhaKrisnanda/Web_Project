@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlipPlay - Katalog Light Novel</title>
+  <meta name="description" content="Baca Light Novel resmi terjemahan Bahasa Indonesia lengkap dengan ilustrasi karya kreator terbaik di FlipPlay.">
+
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Output CSS dari Tailwind CLI -->
+  <link rel="stylesheet" href="../output.css">
+</head>
+<body class="bg-[#0B0F19] text-slate-100 font-sans antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-50 bg-[#0B0F19]/90 backdrop-blur-md border-b border-[#1F293D]">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between" aria-label="Navigasi Katalog Light Novel">
+      <a href="../index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25">
+          <i class="fa-solid fa-feather text-sm"></i>
+        </div>
+        <div>
+          <span class="text-2xl font-extrabold text-white">Flip<span class="text-indigo-400">Play</span></span>
+          <span class="block text-[10px] text-indigo-400 font-semibold tracking-wider uppercase -mt-1">Modul Light Novel</span>
+        </div>
+      </a>
+
+      <!-- Quick Switcher Tabs -->
+      <div class="hidden md:flex items-center space-x-2 text-sm font-medium">
+        <a href="../index.html" class="px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+          <i class="fa-solid fa-house mr-1"></i> Beranda
+        </a>
+        <a href="./anime.html" class="px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+          <i class="fa-solid fa-tv mr-1"></i> Anime
+        </a>
+        <a href="./manga.html" class="px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+          <i class="fa-solid fa-book-open mr-1"></i> Manga
+        </a>
+        <a href="./drama.html" class="px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+          <i class="fa-solid fa-film mr-1"></i> Drama
+        </a>
+        <a href="./light-novel.html" class="px-3 py-2 rounded-lg bg-indigo-600/20 text-indigo-400 border border-indigo-500/30 font-semibold">
+          <i class="fa-solid fa-feather mr-1"></i> Novel
+        </a>
+      </div>
+
+      <a href="../index.html" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors">
+        &larr; Kembali
+      </a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    
+    <!-- Header Banner -->
+    <section class="mb-10 text-center sm:text-left flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#1F293D] pb-8">
+      <div>
+        <span class="px-3 py-1 text-xs font-semibold text-indigo-400 bg-indigo-500/10 rounded-full border border-indigo-500/20 uppercase tracking-wider">
+          Digital Literature
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-2">
+          Koleksi Light Novel Resmi
+        </h1>
+        <p class="text-slate-400 text-sm mt-1">
+          Karya novel populer dengan ilustrasi resmi, terjemahan berkualitas tinggi, dan mode baca malam.
+        </p>
+      </div>
+
+      <!-- Quick Genre Pills -->
+      <div class="flex flex-wrap gap-2 justify-center sm:justify-start">
+        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-indigo-600 text-white cursor-pointer">Semua</span>
+        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer">Isekai</span>
+        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer">Fantasi Sihir</span>
+        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer">Time Loop</span>
+      </div>
+    </section>
+
+    <!-- Novel Grid Cards -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Card 1 -->
+      <article class="bg-[#111827] border border-[#1F293D] rounded-2xl overflow-hidden hover:border-indigo-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex flex-col justify-between">
+        <div>
+          <figure class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=700&q=80" alt="Whispers of the Alchemist" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 text-[10px] font-bold bg-indigo-600 text-white rounded">Volume 6</span>
+            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 text-[10px] font-bold bg-black/70 text-amber-400 rounded"><i class="fa-solid fa-star mr-1"></i>9.5</span>
+          </figure>
+          <div class="p-4 space-y-2">
+            <div class="flex items-center gap-2 text-xs text-indigo-400 font-semibold">
+              <span>Alkimia</span>•<span>Fantasi</span>
+            </div>
+            <h2 class="text-base font-bold text-white group-hover:text-indigo-400 transition-colors">The Alchemist of Whispers</h2>
+            <p class="text-xs text-slate-400 line-clamp-2">Perjalanan sang peracik ramuan meramu kristal memori bintang demi menyelamatkan kerajaannya.</p>
+          </div>
+        </div>
+        <div class="p-4 pt-0 border-t border-slate-800/80 flex items-center justify-between mt-3">
+          <span class="text-xs text-slate-400 font-mono">18 Bab + Ilustrasi</span>
+          <button class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs flex items-center gap-1.5 transition-colors">
+            <i class="fa-solid fa-book-open-reader text-[10px]"></i> Baca Bab 1
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="bg-[#111827] border border-[#1F293D] rounded-2xl overflow-hidden hover:border-indigo-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex flex-col justify-between">
+        <div>
+          <figure class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=700&q=80" alt="Re:Zero Dimensions of Time" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 text-[10px] font-bold bg-pink-600 text-white rounded">Best Seller</span>
+            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 text-[10px] font-bold bg-black/70 text-amber-400 rounded"><i class="fa-solid fa-star mr-1"></i>9.7</span>
+          </figure>
+          <div class="p-4 space-y-2">
+            <div class="flex items-center gap-2 text-xs text-indigo-400 font-semibold">
+              <span>Time Loop</span>•<span>Psikologis</span>
+            </div>
+            <h2 class="text-base font-bold text-white group-hover:text-indigo-400 transition-colors">Re:Zero Dimensions of Time</h2>
+            <p class="text-xs text-slate-400 line-clamp-2">Kutukan kembali ke titik kematian yang memaksa pemuda asing mengorbankan memorinya berulang kali.</p>
+          </div>
+        </div>
+        <div class="p-4 pt-0 border-t border-slate-800/80 flex items-center justify-between mt-3">
+          <span class="text-xs text-slate-400 font-mono">Volume 18</span>
+          <button class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs flex items-center gap-1.5 transition-colors">
+            <i class="fa-solid fa-book-open-reader text-[10px]"></i> Baca Bab 1
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="bg-[#111827] border border-[#1F293D] rounded-2xl overflow-hidden hover:border-indigo-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex flex-col justify-between">
+        <div>
+          <figure class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=700&q=80" alt="Magic Academy Archive" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 text-[10px] font-bold bg-indigo-600 text-white rounded">Volume 3</span>
+            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 text-[10px] font-bold bg-black/70 text-amber-400 rounded"><i class="fa-solid fa-star mr-1"></i>9.1</span>
+          </figure>
+          <div class="p-4 space-y-2">
+            <div class="flex items-center gap-2 text-xs text-indigo-400 font-semibold">
+              <span>Akademi</span>•<span>Sihir</span>
+            </div>
+            <h2 class="text-base font-bold text-white group-hover:text-indigo-400 transition-colors">Grand Arcana: Library of Fate</h2>
+            <p class="text-xs text-slate-400 line-clamp-2">Pustakawan muda yang menjaga ribuan buku mantra terlarang yang mampu mengubah realitas.</p>
+          </div>
+        </div>
+        <div class="p-4 pt-0 border-t border-slate-800/80 flex items-center justify-between mt-3">
+          <span class="text-xs text-slate-400 font-mono">14 Bab</span>
+          <button class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs flex items-center gap-1.5 transition-colors">
+            <i class="fa-solid fa-book-open-reader text-[10px]"></i> Baca Bab 1
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="bg-[#111827] border border-[#1F293D] rounded-2xl overflow-hidden hover:border-indigo-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex flex-col justify-between">
+        <div>
+          <figure class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=700&q=80" alt="Knight of Asteria" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 text-[10px] font-bold bg-cyan-600 text-slate-900 rounded">Baru Rilis</span>
+            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 text-[10px] font-bold bg-black/70 text-amber-400 rounded"><i class="fa-solid fa-star mr-1"></i>9.3</span>
+          </figure>
+          <div class="p-4 space-y-2">
+            <div class="flex items-center gap-2 text-xs text-indigo-400 font-semibold">
+              <span>Kesatria</span>•<span>Perang</span>
+            </div>
+            <h2 class="text-base font-bold text-white group-hover:text-indigo-400 transition-colors">The Silver Knight of Asteria</h2>
+            <p class="text-xs text-slate-400 line-clamp-2">Sumpah kesatria berzirah perak memimpin pertempuran terakhir melawan legiun naga hitam.</p>
+          </div>
+        </div>
+        <div class="p-4 pt-0 border-t border-slate-800/80 flex items-center justify-between mt-3">
+          <span class="text-xs text-slate-400 font-mono">Volume 1</span>
+          <button class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs flex items-center gap-1.5 transition-colors">
+            <i class="fa-solid fa-book-open-reader text-[10px]"></i> Baca Bab 1
+          </button>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-[#1F293D] py-8 text-center text-xs text-slate-500 mt-12">
+    <p>&copy; 2026 FlipPlay Technologies Inc. Modul Katalog Light Novel.</p>
+  </footer>
+
+</body>
+</html>

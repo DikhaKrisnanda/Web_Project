@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-accent-cyan: #06b6d4;
+  --color-accent-pink: #ec4899;
+  --color-accent-amber: #f59e0b;
+  --color-dark-base: #0B0F19;
+  --color-dark-card: #111827;
+  --color-dark-surface: #1A2333;
+  --color-dark-border: #1F293D;
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 50%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .shadow-glow-indigo {
+    box-shadow: 0 0 30px -5px rgba(99, 102, 241, 0.35);
+  }
+  .shadow-glow-cyan {
+    box-shadow: 0 0 30px -5px rgba(6, 182, 212, 0.35);
+  }
+  .shadow-glow-pink {
+    box-shadow: 0 0 30px -5px rgba(236, 72, 153, 0.35);
+  }
+}

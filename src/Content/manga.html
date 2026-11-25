@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlipPlay - Katalog Digital Manga</title>
+  <meta name="description" content="Baca Manga, Manhwa, dan Webtoon dengan panel resolusi tinggi dan terjemahan Bahasa Indonesia resmi di FlipPlay.">
+
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Output CSS dari Tailwind CLI -->
+  <link rel="stylesheet" href="../output.css">
+</head>
+<body class="bg-[#0B0F19] text-slate-100 font-sans antialiased selection:bg-cyan-600 selection:text-white">
+
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-50 bg-[#0B0F19]/90 backdrop-blur-md border-b border-[#1F293D]">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between" aria-label="Navigasi Katalog Manga">
+      <a href="../index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-cyan-500/25">
+          <i class="fa-solid fa-book-open text-sm"></i>
+        </div>
+        <div>
+          <span class="text-2xl font-extrabold text-white">Flip<span class="text-cyan-400">Play</span></span>
+          <span class="block text-[10px] text-cyan-400 font-semibold tracking-wider uppercase -mt-1">Modul Manga</span>
+        </div>
+      </a>
+
+      <!-- Quick Switcher Tabs -->
+      <div class="hidden md:flex items-center space-x-2 text-sm font-medium">
+        <a href="../index.html" class="px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+          <i class="fa-solid fa-house mr-1"></i> Beranda
+        </a>
+        <a href="./anime.html" class="px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+          <i class="fa-solid fa-tv mr-1"></i> Anime
+        </a>
+        <a href="./manga.html" class="px-3 py-2 rounded-lg bg-cyan-600/20 text-cyan-400 border border-cyan-500/30 font-semibold">
+          <i class="fa-solid fa-book-open mr-1"></i> Manga
+        </a>
+        <a href="./drama.html" class="px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+          <i class="fa-solid fa-film mr-1"></i> Drama
+        </a>
+        <a href="./light-novel.html" class="px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+          <i class="fa-solid fa-feather mr-1"></i> Novel
+        </a>
+      </div>
+
+      <a href="../index.html" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors">
+        &larr; Kembali
+      </a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    
+    <!-- Header Banner -->
+    <section class="mb-10 text-center sm:text-left flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#1F293D] pb-8">
+      <div>
+        <span class="px-3 py-1 text-xs font-semibold text-cyan-400 bg-cyan-500/10 rounded-full border border-cyan-500/20 uppercase tracking-wider">
+          Digital Reading
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-2">
+          Koleksi Manga & Manhwa
+        </h1>
+        <p class="text-slate-400 text-sm mt-1">
+          Panel komik digital tanpa jeda muat, dukungan gulir vertikal lancar, dan visual tajam.
+        </p>
+      </div>
+
+      <!-- Quick Genre Pills -->
+      <div class="flex flex-wrap gap-2 justify-center sm:justify-start">
+        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-cyan-600 text-slate-950 font-bold cursor-pointer">Semua</span>
+        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer">Leveling</span>
+        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer">Shonen</span>
+        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer">Supernatural</span>
+        <span class="px-3 py-1 rounded-lg text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer">Romance</span>
+      </div>
+    </section>
+
+    <!-- Manga Grid Cards -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Card 1 -->
+      <article class="bg-[#111827] border border-[#1F293D] rounded-2xl overflow-hidden hover:border-cyan-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex flex-col justify-between">
+        <div>
+          <figure class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=700&q=80" alt="Shadow Monarch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 text-[10px] font-bold bg-cyan-500 text-slate-900 rounded">Ch. Baru</span>
+            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 text-[10px] font-bold bg-black/70 text-amber-400 rounded"><i class="fa-solid fa-star mr-1"></i>9.8</span>
+          </figure>
+          <div class="p-4 space-y-2">
+            <div class="flex items-center gap-2 text-xs text-cyan-400 font-semibold">
+              <span>Aksi</span>•<span>Leveling</span>•<span>Fantasy</span>
+            </div>
+            <h2 class="text-base font-bold text-white group-hover:text-cyan-400 transition-colors">Shadow Monarch Academy</h2>
+            <p class="text-xs text-slate-400 line-clamp-2">Seorang hunter terlemah memperoleh kemampuan mengendalikan bayangan dari dungeon rahasia.</p>
+          </div>
+        </div>
+        <div class="p-4 pt-0 border-t border-slate-800/80 flex items-center justify-between mt-3">
+          <span class="text-xs text-slate-400 font-mono">Chapter 128</span>
+          <button class="px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition-colors">
+            <i class="fa-solid fa-book-open text-[10px]"></i> Baca Ch. 1
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="bg-[#111827] border border-[#1F293D] rounded-2xl overflow-hidden hover:border-cyan-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex flex-col justify-between">
+        <div>
+          <figure class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=700&q=80" alt="Blade of the Wind" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 text-[10px] font-bold bg-indigo-600 text-white rounded">Historis</span>
+            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 text-[10px] font-bold bg-black/70 text-amber-400 rounded"><i class="fa-solid fa-star mr-1"></i>9.3</span>
+          </figure>
+          <div class="p-4 space-y-2">
+            <div class="flex items-center gap-2 text-xs text-cyan-400 font-semibold">
+              <span>Samurai</span>•<span>Historis</span>
+            </div>
+            <h2 class="text-base font-bold text-white group-hover:text-cyan-400 transition-colors">Blade of the Wind: Chronicle</h2>
+            <p class="text-xs text-slate-400 line-clamp-2">Ronin pengembara yang melindungi penduduk desa tertindas dari tirani panglima perang.</p>
+          </div>
+        </div>
+        <div class="p-4 pt-0 border-t border-slate-800/80 flex items-center justify-between mt-3">
+          <span class="text-xs text-slate-400 font-mono">Chapter 85</span>
+          <button class="px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition-colors">
+            <i class="fa-solid fa-book-open text-[10px]"></i> Baca Ch. 1
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="bg-[#111827] border border-[#1F293D] rounded-2xl overflow-hidden hover:border-cyan-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex flex-col justify-between">
+        <div>
+          <figure class="relative aspect-video overflow-hidden">
+            <img src="../1.jpeg" alt="Cyberpunk Manga Adaptation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 text-[10px] font-bold bg-pink-600 text-white rounded">Adaptasi</span>
+            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 text-[10px] font-bold bg-black/70 text-amber-400 rounded"><i class="fa-solid fa-star mr-1"></i>9.5</span>
+          </figure>
+          <div class="p-4 space-y-2">
+            <div class="flex items-center gap-2 text-xs text-cyan-400 font-semibold">
+              <span>Cyberpunk</span>•<span>Sci-Fi</span>
+            </div>
+            <h2 class="text-base font-bold text-white group-hover:text-cyan-400 transition-colors">Cyberpunk Neon (Manga Ver.)</h2>
+            <p class="text-xs text-slate-400 line-clamp-2">Versi manga resmi dengan detail gambar mekanik yang tidak ditampilkan dalam serial animasinya.</p>
+          </div>
+        </div>
+        <div class="p-4 pt-0 border-t border-slate-800/80 flex items-center justify-between mt-3">
+          <span class="text-xs text-slate-400 font-mono">Chapter 48</span>
+          <button class="px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition-colors">
+            <i class="fa-solid fa-book-open text-[10px]"></i> Baca Ch. 1
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="bg-[#111827] border border-[#1F293D] rounded-2xl overflow-hidden hover:border-cyan-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex flex-col justify-between">
+        <div>
+          <figure class="relative aspect-video overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=700&q=80" alt="Demon Clan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2.5 left-2.5 px-2 py-0.5 text-[10px] font-bold bg-cyan-500 text-slate-900 rounded">Trending</span>
+            <span class="absolute top-2.5 right-2.5 px-2 py-0.5 text-[10px] font-bold bg-black/70 text-amber-400 rounded"><i class="fa-solid fa-star mr-1"></i>9.4</span>
+          </figure>
+          <div class="p-4 space-y-2">
+            <div class="flex items-center gap-2 text-xs text-cyan-400 font-semibold">
+              <span>Supernatural</span>•<span>Shonen</span>
+            </div>
+            <h2 class="text-base font-bold text-white group-hover:text-cyan-400 transition-colors">Chronicles of the Exorcist</h2>
+            <p class="text-xs text-slate-400 line-clamp-2">Penyegelan iblis kuno yang bangkit di sekolah menengah pinggiran kota Tokyo.</p>
+          </div>
+        </div>
+        <div class="p-4 pt-0 border-t border-slate-800/80 flex items-center justify-between mt-3">
+          <span class="text-xs text-slate-400 font-mono">Chapter 64</span>
+          <button class="px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition-colors">
+            <i class="fa-solid fa-book-open text-[10px]"></i> Baca Ch. 1
+          </button>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-[#1F293D] py-8 text-center text-xs text-slate-500 mt-12">
+    <p>&copy; 2026 FlipPlay Technologies Inc. Modul Katalog Digital Manga.</p>
+  </footer>
+
+</body>
+</html>

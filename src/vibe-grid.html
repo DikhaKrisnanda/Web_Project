@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth overflow-x-hidden">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>The Vibe Grid - Discovery Engine FlipPlay</title>
+  <meta name="description"
+    content="Halaman The Vibe Grid FlipPlay menampilkan katalog media interaktif berbasis Fetch API, Unified Search real-time, dan Aura-Based Discovery.">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Output Tailwind CSS CLI -->
+  <link rel="stylesheet" href="./output.css">
+</head>
+
+<body class="bg-[#0B0F19] text-slate-100 font-sans antialiased selection:bg-indigo-600 selection:text-white overflow-x-hidden w-full min-h-screen">
+
+  <!-- Header & Navigation -->
+  <header class="sticky top-0 z-50 bg-[#0B0F19]/90 backdrop-blur-md border-b border-[#1F293D]">
+    <nav class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2"
+      aria-label="Navigasi The Vibe Grid">
+
+      <!-- Brand Logo -->
+      <a href="./index.html"
+        class="flex items-center gap-2 sm:gap-3 group focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-lg p-1 min-w-0">
+        <div
+          class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform flex-shrink-0">
+          <i class="fa-solid fa-play text-white text-xs sm:text-sm ml-0.5"></i>
+        </div>
+        <div class="min-w-0">
+          <span class="text-lg sm:text-2xl font-extrabold tracking-tight text-white flex items-center">
+            Flip<span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-500">Play</span>
+          </span>
+          <span class="block text-[9px] sm:text-[10px] text-slate-400 font-medium tracking-wider uppercase -mt-0.5 truncate">The Vibe Grid</span>
+        </div>
+      </a>
+
+      <!-- Quick Nav Buttons -->
+      <div class="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
+        <a href="./index.html"
+          class="inline-flex items-center justify-center gap-1.5 px-2.5 sm:px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium text-slate-300 hover:text-white bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 transition-colors"
+          title="Kembali ke Beranda">
+          <i class="fa-solid fa-arrow-left text-xs text-slate-400"></i>
+          <span class="hidden sm:inline">Beranda</span>
+        </a>
+
+        <!-- Button Request Media Form -->
+        <button id="openRequestModalBtn" type="button"
+          class="inline-flex items-center justify-center gap-1.5 px-2.5 sm:px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium text-slate-200 hover:text-white bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 transition-colors"
+          title="Buka Form Usulan Media Baru">
+          <i class="fa-solid fa-plus text-xs text-indigo-400"></i>
+          <span class="hidden sm:inline">Usulkan Judul</span>
+        </button>
+
+        <!-- Reload Data Button -->
+        <button id="refreshBtn" type="button"
+          class="inline-flex items-center justify-center gap-1.5 p-2 sm:px-3.5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium bg-indigo-600 hover:bg-indigo-500 text-white shadow-md shadow-indigo-600/25 transition-all"
+          title="Perbarui Data">
+          <i class="fa-solid fa-arrows-rotate text-xs"></i>
+          <span class="hidden md:inline">Perbarui</span>
+        </button>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- ==========================================
+       MAIN CONTENT: THE VIBE GRID
+  =========================================== -->
+  <main class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-14 w-full">
+
+    <!-- Section Header: Title & Info -->
+    <section class="text-center max-w-3xl mx-auto space-y-3 mb-8 sm:mb-10 px-1">
+      <div
+        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs font-medium text-indigo-300">
+        <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+        <span>Koleksi Terkurasi</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        The Vibe <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-pink-400 to-amber-300">Grid</span>
+      </h1>
+
+      <p class="text-slate-400 text-xs sm:text-base leading-relaxed max-w-xl mx-auto">
+        Temukan rekomendasi anime, manga, dan drama favoritmu sesuai suasana hati.
+      </p>
+    </section>
+
+    <!-- ==========================================
+         CONTROL PANEL: UNIFIED SEARCH & AURA DISCOVERY
+    =========================================== -->
+    <section class="bg-[#111827]/90 border border-slate-800/80 rounded-2xl p-4 sm:p-6 shadow-xl mb-8 sm:mb-10 space-y-4 sm:space-y-5">
+
+      <!-- Top Row: Unified Search & Source Info -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
+
+        <!-- Unified Search Input (Event Handling: input) -->
+        <form id="searchForm" class="relative flex-1 min-w-0 w-full" onsubmit="event.preventDefault();">
+          <label for="unifiedSearch" class="sr-only">Cari judul media</label>
+          <div class="relative w-full">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none"></i>
+            <input type="text" id="unifiedSearch"
+              placeholder="Cari judul anime, manga, atau drama..."
+              class="w-full pl-10 pr-9 py-2.5 sm:py-3 bg-[#0B0F19] border border-slate-800 focus:border-indigo-500 rounded-xl text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 transition-all"
+              autocomplete="off">
+            <button type="button" id="clearSearchBtn"
+              class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-1"
+              title="Hapus pencarian">
+              <i class="fa-solid fa-circle-xmark text-sm"></i>
+            </button>
+          </div>
+        </form>
+
+        <!-- Media Type Selector Filter -->
+        <div class="flex items-center justify-between sm:justify-start gap-2 w-full sm:w-auto">
+          <label for="typeFilter" class="text-xs text-slate-400 font-medium flex-shrink-0">Tipe Media:</label>
+          <select id="typeFilter"
+            class="flex-1 sm:flex-initial px-3 py-2.5 sm:py-3 bg-[#0B0F19] border border-slate-800 focus:border-indigo-500 rounded-xl text-xs sm:text-sm text-slate-200 focus:outline-none transition-colors cursor-pointer">
+            <option value="All">Semua Kategori</option>
+            <option value="Anime">Hanya Anime</option>
+            <option value="Manga">Hanya Manga</option>
+            <option value="Drama">Hanya Drama</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- Bottom Row: Filter Suasana Hati -->
+      <div class="space-y-3 pt-3 border-t border-slate-800/80">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <span class="text-xs font-medium text-slate-400 flex items-center gap-1.5">
+            <i class="fa-solid fa-sparkles text-indigo-400"></i>
+            <span>Filter Suasana Hati:</span>
+          </span>
+          <span id="resultCountBadge"
+            class="text-[11px] sm:text-xs font-medium text-slate-400 bg-slate-800/60 border border-slate-700/50 px-2.5 py-0.5 rounded-full whitespace-nowrap">
+            Memuat...
+          </span>
+        </div>
+
+        <!-- Aura Button Group -->
+        <div id="auraButtonGroup" class="flex flex-wrap items-center gap-1.5 sm:gap-2" role="tablist">
+          <button type="button" data-aura="All"
+            class="aura-btn active px-3 sm:px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all bg-indigo-600 text-white shadow-sm shadow-indigo-600/30 flex items-center gap-1.5">
+            <i class="fa-solid fa-layer-group text-[11px]"></i> <span>Semua Suasana</span>
+          </button>
+          <button type="button" data-aura="High Energy"
+            class="aura-btn px-3 sm:px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all bg-slate-800/70 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-700/60 flex items-center gap-1.5">
+            <i class="fa-solid fa-bolt text-amber-400 text-[11px]"></i> <span>High Energy</span>
+          </button>
+          <button type="button" data-aura="Melancholy"
+            class="aura-btn px-3 sm:px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all bg-slate-800/70 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-700/60 flex items-center gap-1.5">
+            <i class="fa-solid fa-cloud-rain text-sky-400 text-[11px]"></i> <span>Melancholy</span>
+          </button>
+          <button type="button" data-aura="Binge Mode"
+            class="aura-btn px-3 sm:px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all bg-slate-800/70 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-700/60 flex items-center gap-1.5">
+            <i class="fa-solid fa-fire text-pink-400 text-[11px]"></i> <span>Binge Mode</span>
+          </button>
+          <button type="button" data-aura="Chill Vibes"
+            class="aura-btn px-3 sm:px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all bg-slate-800/70 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-700/60 flex items-center gap-1.5">
+            <i class="fa-solid fa-mug-hot text-emerald-400 text-[11px]"></i> <span>Chill Vibes</span>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         STATE CONTAINERS (LOADING, ERROR, EMPTY, GRID)
+    =========================================== -->
+
+    <!-- Loading State -->
+    <div id="loadingState" class="py-16 text-center space-y-6">
+      <div
+        class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-indigo-600/20 text-indigo-400 border border-indigo-500/30">
+        <i class="fa-solid fa-circle-notch fa-spin text-3xl"></i>
+      </div>
+      <div class="space-y-1">
+        <h3 class="text-lg font-bold text-white">Memuat Rekomendasi Media...</h3>
+        <p class="text-xs text-slate-400">Menyiapkan pilihan tontonan dan bacaan untuk Anda</p>
+      </div>
+
+      <!-- Skeleton Shimmer Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-6">
+        <div class="bg-[#111827] border border-[#1F293D] rounded-2xl p-4 space-y-3 animate-pulse">
+          <div class="w-full aspect-video bg-slate-800 rounded-xl"></div>
+          <div class="h-4 bg-slate-800 rounded w-3/4"></div>
+          <div class="h-3 bg-slate-800 rounded w-1/2"></div>
+          <div class="h-10 bg-slate-800 rounded"></div>
+        </div>
+        <div class="bg-[#111827] border border-[#1F293D] rounded-2xl p-4 space-y-3 animate-pulse">
+          <div class="w-full aspect-video bg-slate-800 rounded-xl"></div>
+          <div class="h-4 bg-slate-800 rounded w-3/4"></div>
+          <div class="h-3 bg-slate-800 rounded w-1/2"></div>
+          <div class="h-10 bg-slate-800 rounded"></div>
+        </div>
+        <div class="bg-[#111827] border border-[#1F293D] rounded-2xl p-4 space-y-3 animate-pulse">
+          <div class="w-full aspect-video bg-slate-800 rounded-xl"></div>
+          <div class="h-4 bg-slate-800 rounded w-3/4"></div>
+          <div class="h-3 bg-slate-800 rounded w-1/2"></div>
+          <div class="h-10 bg-slate-800 rounded"></div>
+        </div>
+        <div class="bg-[#111827] border border-[#1F293D] rounded-2xl p-4 space-y-3 animate-pulse">
+          <div class="w-full aspect-video bg-slate-800 rounded-xl"></div>
+          <div class="h-4 bg-slate-800 rounded w-3/4"></div>
+          <div class="h-3 bg-slate-800 rounded w-1/2"></div>
+          <div class="h-10 bg-slate-800 rounded"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error State -->
+    <div id="errorState"
+      class="hidden my-8 p-8 rounded-3xl bg-rose-950/30 border border-rose-500/40 text-center space-y-4 max-w-xl mx-auto shadow-2xl">
+      <div
+        class="w-16 h-16 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center text-3xl mx-auto">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-white">Gagal Mengambil Data dari API!</h3>
+        <p id="errorMessageText" class="text-sm text-rose-300/90 mt-1">
+          Terjadi kesalahan jaringan atau endpoint API sedang mengalami gangguan (HTTP Timeout/Failed to Fetch).
+        </p>
+      </div>
+      <div class="pt-2 flex justify-center gap-3">
+        <button id="retryBtn" type="button"
+          class="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-semibold text-xs transition-colors flex items-center gap-2">
+          <i class="fa-solid fa-rotate-right"></i>
+          <span>Coba Ambil Ulang Data</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 3. EMPTY STATE (Hasil pencarian tidak ada) -->
+    <div id="emptyState" class="hidden py-16 text-center space-y-3">
+      <div
+        class="w-16 h-16 rounded-full bg-slate-800/80 text-slate-500 flex items-center justify-center text-2xl mx-auto">
+        <i class="fa-solid fa-film"></i>
+      </div>
+      <h3 class="text-lg font-bold text-white">Tidak Ada Media yang Cocok</h3>
+      <p class="text-xs text-slate-400 max-w-sm mx-auto">
+        Tidak ditemukan judul yang cocok dengan kata kunci atau filter Aura yang Anda pilih. Coba gunakan kata kunci
+        lain.
+      </p>
+      <button id="resetFilterBtn" type="button"
+        class="mt-2 px-4 py-2 rounded-xl bg-indigo-600/30 hover:bg-indigo-600 text-indigo-300 hover:text-white text-xs font-semibold border border-indigo-500/40 transition-colors">
+        Reset Semua Filter
+      </button>
+    </div>
+
+    <!-- 4. DYNAMIC CARD GRID (Dirender dengan Template Literal) -->
+    <div id="vibeGrid" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Cards di-inject di sini oleh renderVibeGrid() via JavaScript -->
+    </div>
+
+  </main>
+
+  <!-- ==========================================
+       MODAL DETAIL POPUP (Event Handling: click)
+  =========================================== -->
+  <div id="detailModal"
+    class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div
+      class="bg-[#111827] border border-[#1F293D] rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl relative transform transition-all animate-in fade-in zoom-in-95 duration-200">
+
+      <!-- Close Button -->
+      <button id="closeModalBtn" type="button"
+        class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Modal Image Cover -->
+      <figure class="relative aspect-video overflow-hidden">
+        <img id="modalImage" src="" alt="Cover" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#111827] via-transparent to-transparent"></div>
+        <div class="absolute bottom-3 left-4 flex gap-2">
+          <span id="modalTypeBadge" class="px-2.5 py-0.5 text-xs font-bold rounded-md bg-indigo-600 text-white"></span>
+          <span id="modalAuraBadge" class="px-2.5 py-0.5 text-xs font-bold rounded-md bg-pink-600 text-white"></span>
+        </div>
+      </figure>
+
+      <!-- Modal Info Content -->
+      <div class="p-6 space-y-4">
+        <div>
+          <div class="flex items-center justify-between text-xs text-slate-400 font-mono mb-1">
+            <span id="modalEpisodes"></span>
+            <span id="modalRating" class="text-amber-400 font-bold flex items-center gap-1"></span>
+          </div>
+          <h3 id="modalTitle" class="text-2xl font-bold text-white"></h3>
+          <div id="modalGenres" class="flex flex-wrap gap-1.5 mt-2"></div>
+        </div>
+
+        <p id="modalSynopsis" class="text-xs sm:text-sm text-slate-300 leading-relaxed max-h-36 overflow-y-auto pr-1">
+        </p>
+
+        <div class="pt-2 flex gap-3">
+          <button type="button"
+            class="flex-1 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-pink-600 hover:opacity-95 text-white font-bold text-xs shadow-lg transition-all flex items-center justify-center gap-2">
+            <i class="fa-solid fa-play"></i>
+            <span>Mulai Nonton / Baca Sekarang</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal Form Request Media Baru -->
+  <div id="requestMediaModal"
+    class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div
+      class="bg-[#111827] border border-[#1F293D] rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl relative p-6 sm:p-7 space-y-4 max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
+
+      <!-- Close Button -->
+      <button id="closeReqModalBtn" type="button"
+        class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div>
+        <span
+          class="px-2.5 py-0.5 text-[10px] font-bold rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 uppercase tracking-wider">
+          Form Usulan Media
+        </span>
+        <h3 class="text-xl font-bold text-white mt-1">Usulkan Anime / Manga / Drama</h3>
+        <p class="text-xs text-slate-400">Ajukan judul baru ke FlipPlay dengan validasi format lengkap.</p>
+      </div>
+
+      <!-- Error Alert inside Modal -->
+      <div id="reqErrorAlert"
+        class="hidden p-3.5 rounded-xl bg-rose-950/40 border border-rose-500/40 text-rose-300 text-xs space-y-1">
+        <div class="flex items-center gap-2 font-bold text-white">
+          <i class="fa-solid fa-circle-exclamation text-rose-400"></i>
+          <span>Gagal Menambahkan Media!</span>
+        </div>
+        <p id="reqErrorMessage">Gagal menghubungi server database.</p>
+      </div>
+
+      <form id="requestForm" class="space-y-3.5" novalidate>
+        <!-- Judul Media -->
+        <div>
+          <label for="reqTitle" class="block text-xs font-semibold text-slate-300 mb-1">Judul Media *</label>
+          <input type="text" id="reqTitle" placeholder="Contoh: One Piece / Bleach"
+            class="w-full px-3.5 py-2.5 bg-[#1A2333] border border-[#1F293D] focus:border-indigo-500 rounded-xl text-xs sm:text-sm text-white focus:outline-none">
+          <p id="reqTitleError" class="hidden text-xs text-rose-400 mt-1 flex items-center gap-1">
+            <i class="fa-solid fa-circle-exclamation text-[11px]"></i>
+            <span>Judul media belum diisi (minimal 3 karakter).</span>
+          </p>
+        </div>
+
+        <!-- Tipe & Aura -->
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="reqType" class="block text-xs font-semibold text-slate-300 mb-1">Tipe Media *</label>
+            <select id="reqType"
+              class="w-full px-3 py-2.5 bg-[#1A2333] border border-[#1F293D] focus:border-indigo-500 rounded-xl text-xs text-white focus:outline-none cursor-pointer">
+              <option value="">-- Pilih Tipe --</option>
+              <option value="Anime">Anime</option>
+              <option value="Manga">Manga</option>
+              <option value="Drama">Drama</option>
+            </select>
+            <p id="reqTypeError" class="hidden text-xs text-rose-400 mt-1">Pilih tipe media.</p>
+          </div>
+
+          <div>
+            <label for="reqAura" class="block text-xs font-semibold text-slate-300 mb-1">Kategori Aura *</label>
+            <select id="reqAura"
+              class="w-full px-3 py-2.5 bg-[#1A2333] border border-[#1F293D] focus:border-indigo-500 rounded-xl text-xs text-white focus:outline-none cursor-pointer">
+              <option value="">-- Pilih Aura --</option>
+              <option value="High Energy">⚡ High Energy</option>
+              <option value="Melancholy">🌧️ Melancholy</option>
+              <option value="Binge Mode">🍿 Binge Mode</option>
+              <option value="Chill Vibes">☕ Chill Vibes</option>
+            </select>
+            <p id="reqAuraError" class="hidden text-xs text-rose-400 mt-1">Pilih kategori aura.</p>
+          </div>
+        </div>
+
+        <!-- Rating & Email -->
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="reqRating" class="block text-xs font-semibold text-slate-300 mb-1">Rating Skor (1.0 - 10.0)
+              *</label>
+            <input type="number" step="0.1" min="1.0" max="10.0" id="reqRating" placeholder="9.5"
+              class="w-full px-3.5 py-2.5 bg-[#1A2333] border border-[#1F293D] focus:border-indigo-500 rounded-xl text-xs sm:text-sm text-white focus:outline-none">
+            <p id="reqRatingError" class="hidden text-xs text-rose-400 mt-1">Isi rating antara 1.0 s.d. 10.0.</p>
+          </div>
+
+          <div>
+            <label for="reqEmail" class="block text-xs font-semibold text-slate-300 mb-1">Email Pengusul *</label>
+            <input type="email" id="reqEmail" placeholder="user@email.com"
+              class="w-full px-3.5 py-2.5 bg-[#1A2333] border border-[#1F293D] focus:border-indigo-500 rounded-xl text-xs sm:text-sm text-white focus:outline-none">
+            <p id="reqEmailError" class="hidden text-xs text-rose-400 mt-1">Format email tidak valid.</p>
+          </div>
+        </div>
+
+        <!-- Sinopsis -->
+        <div>
+          <label for="reqSynopsis" class="block text-xs font-semibold text-slate-300 mb-1">Sinopsis Singkat *</label>
+          <textarea id="reqSynopsis" rows="3" placeholder="Tuliskan cerita singkat serial ini..."
+            class="w-full px-3.5 py-2 bg-[#1A2333] border border-[#1F293D] focus:border-indigo-500 rounded-xl text-xs text-white focus:outline-none resize-none"></textarea>
+          <p id="reqSynopsisError" class="hidden text-xs text-rose-400 mt-1">Sinopsis belum diisi (minimal 10 karakter).
+          </p>
+        </div>
+
+        <button type="submit" id="reqSubmitBtn"
+          class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 hover:opacity-95 text-white font-bold text-xs shadow-lg transition-all flex items-center justify-center gap-2">
+          <i id="reqBtnIcon" class="fa-solid fa-paper-plane"></i>
+          <span id="reqBtnText">Tambahkan ke The Vibe Grid</span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ==========================================
+       FLOATING COLLAPSIBLE DEV DRAWER
+  =========================================== -->
+  <aside class="fixed bottom-4 right-4 sm:bottom-5 sm:right-5 z-40 flex flex-col items-end" aria-label="Developer & Testing Drawer">
+
+    <!-- Collapsible Drawer Panel -->
+    <div id="devDrawerPanel"
+      class="hidden mb-3 w-72 max-w-[calc(100vw-2rem)] bg-[#111827]/95 border border-[#1F293D] rounded-2xl p-4 shadow-2xl backdrop-blur-xl space-y-3 animate-in fade-in slide-in-from-bottom-2 duration-200">
+
+      <!-- Drawer Header -->
+      <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400" id="devStatusDot"></span>
+          <span class="text-xs font-bold text-white uppercase tracking-wider">Dev Controls</span>
+        </div>
+        <button id="closeDevDrawerBtn" type="button"
+          class="text-slate-400 hover:text-white text-xs p-1 rounded-lg hover:bg-slate-800 transition-colors"
+          title="Tutup Panel Dev">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Controls -->
+      <div class="space-y-2">
+        <p class="text-[11px] text-slate-400 leading-tight">
+          Kontrol pengujian untuk simulasi error state dan pembaruan data API.
+        </p>
+
+        <!-- Toggle Error Button -->
+        <button id="toggleErrorBtn" type="button"
+          class="w-full px-3 py-2 rounded-xl text-xs font-medium bg-slate-800/80 hover:bg-slate-800 text-slate-300 border border-slate-700/60 transition-all flex items-center justify-between group">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-rose-400 text-xs"></i>
+            <span>Simulasi Error State</span>
+          </span>
+          <span id="devErrorIndicator"
+            class="px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-700/60 text-slate-400">
+            OFF
+          </span>
+        </button>
+
+        <!-- Quick API Refetch Button -->
+        <button id="devRefreshBtn" type="button"
+          class="w-full px-3 py-2 rounded-xl text-xs font-medium bg-slate-800/50 hover:bg-slate-800 text-slate-300 border border-slate-700/40 transition-all flex items-center justify-between">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-arrows-rotate text-indigo-400 text-xs"></i>
+            <span>Muat Ulang API</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-slate-500"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Trigger Button (Floating Pill) -->
+    <button id="devDrawerToggleBtn" type="button"
+      class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-[#111827]/90 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-700/70 shadow-xl backdrop-blur-md text-xs font-medium transition-all group"
+      title="Buka panel developer & pengujian">
+      <i class="fa-solid fa-sliders text-indigo-400 group-hover:rotate-45 transition-transform duration-300 text-xs"></i>
+      <span>Dev Tools</span>
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+    </button>
+  </aside>
+
+  <!-- ==========================================
+       FOOTER (HTML SEMANTIK)
+  =========================================== -->
+  <footer class="bg-[#0B0F19] border-t border-slate-800/80 py-8 text-slate-500 text-xs text-center mt-16">
+    <div class="max-w-7xl mx-auto px-4 space-y-1.5">
+      <p>&copy; 2026 FlipPlay Technologies Inc. The Vibe Grid.</p>
+      <p class="text-slate-600">Platform kurasi hiburan digital terpadu untuk anime, manga, drama, dan novel.</p>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       JAVASCRIPT LOGIC
+  =========================================== -->
+  <script>
+    let mediaData = [];
+    let currentAura = 'All';
+    let currentType = 'All';
+    let searchQuery = '';
+    let simulateError = false;
+
+    const vibeGrid = document.getElementById('vibeGrid');
+    const loadingState = document.getElementById('loadingState');
+    const errorState = document.getElementById('errorState');
+    const errorMessageText = document.getElementById('errorMessageText');
+    const emptyState = document.getElementById('emptyState');
+    const unifiedSearch = document.getElementById('unifiedSearch');
+    const clearSearchBtn = document.getElementById('clearSearchBtn');
+    const typeFilter = document.getElementById('typeFilter');
+    const auraButtons = document.querySelectorAll('.aura-btn');
+    const resultCountBadge = document.getElementById('resultCountBadge');
+    const refreshBtn = document.getElementById('refreshBtn');
+    const retryBtn = document.getElementById('retryBtn');
+    const toggleErrorBtn = document.getElementById('toggleErrorBtn');
+    const resetFilterBtn = document.getElementById('resetFilterBtn');
+
+    const devDrawerPanel = document.getElementById('devDrawerPanel');
+    const devDrawerToggleBtn = document.getElementById('devDrawerToggleBtn');
+    const closeDevDrawerBtn = document.getElementById('closeDevDrawerBtn');
+    const devRefreshBtn = document.getElementById('devRefreshBtn');
+    const devErrorIndicator = document.getElementById('devErrorIndicator');
+    const devStatusDot = document.getElementById('devStatusDot');
+
+    const detailModal = document.getElementById('detailModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalTypeBadge = document.getElementById('modalTypeBadge');
+    const modalAuraBadge = document.getElementById('modalAuraBadge');
+    const modalRating = document.getElementById('modalRating');
+    const modalEpisodes = document.getElementById('modalEpisodes');
+    const modalGenres = document.getElementById('modalGenres');
+    const modalSynopsis = document.getElementById('modalSynopsis');
+
+    const PUBLIC_KITSU_API = 'https://kitsu.io/api/edge/anime?page%5Blimit%5D=12&sort=-userCount';
+
+    async function fetchMediaData() {
+      showLoading(true);
+      showError(false);
+
+      try {
+        if (!navigator.onLine) {
+          throw new Error('Koneksi internet terputus. Gagal memuat data dari API.');
+        }
+
+        if (simulateError) {
+          throw new Error('Simulasi Error Jaringan: Gagal menghubungi server media publik (HTTP 503 Service Unavailable).');
+        }
+
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 6000);
+
+        const response = await fetch(PUBLIC_KITSU_API, { signal: controller.signal });
+        clearTimeout(timeoutId);
+
+        if (!response.ok) {
+          throw new Error(`API Publik merespons HTTP ${response.status}`);
+        }
+
+        const json = await response.json();
+
+        if (json.data && Array.isArray(json.data)) {
+          const auraPool = ['High Energy', 'Binge Mode', 'Chill Vibes', 'Melancholy'];
+
+          mediaData = json.data.map((item, index) => {
+            const attr = item.attributes;
+            const genres = [
+              attr.subtype ? attr.subtype.toUpperCase() : 'TV',
+              attr.ageRatingGuide || 'Action',
+              attr.status ? attr.status.toUpperCase() : 'ANIME'
+            ].filter(Boolean);
+
+            return {
+              id: item.id,
+              title: attr.canonicalTitle || attr.titles?.en || attr.titles?.en_jp || 'Anime Title',
+              type: 'Anime',
+              aura: auraPool[index % auraPool.length],
+              genres: genres,
+              rating: attr.averageRating ? (parseFloat(attr.averageRating) / 10).toFixed(1) : '8.9',
+              episodes: attr.episodeCount ? `${attr.episodeCount} Episode` : 'TV Series',
+              image: attr.posterImage?.large || attr.posterImage?.medium || attr.posterImage?.original || './1.jpeg',
+              synopsis: attr.synopsis || attr.description || 'Sinopsis tidak tersedia untuk judul ini.',
+              status: attr.status === 'finished' ? 'Completed' : 'Airing',
+              year: attr.startDate ? attr.startDate.substring(0, 4) : '2024'
+            };
+          });
+        } else {
+          throw new Error('Format data API tidak valid.');
+        }
+
+        applyFiltersAndRender();
+        showLoading(false);
+      } catch (err) {
+        mediaData = [];
+        showLoading(false);
+        showError(true, err.message || 'Gagal memuat data media.');
+      }
+    }
+
+    function showLoading(isLoading) {
+      if (isLoading) {
+        loadingState.classList.remove('hidden');
+        vibeGrid.classList.add('hidden');
+        emptyState.classList.add('hidden');
+      } else {
+        loadingState.classList.add('hidden');
+      }
+    }
+
+    function showError(isError, message = '') {
+      if (isError) {
+        errorState.classList.remove('hidden');
+        errorMessageText.textContent = message;
+        vibeGrid.classList.add('hidden');
+        emptyState.classList.add('hidden');
+        resultCountBadge.textContent = 'Gagal memuat';
+        resultCountBadge.className = 'text-xs font-mono text-rose-400 bg-rose-950/60 border border-rose-800/60 px-2.5 py-0.5 rounded-full';
+      } else {
+        errorState.classList.add('hidden');
+      }
+    }
+
+    function applyFiltersAndRender() {
+      if (!mediaData || mediaData.length === 0) return;
+
+      const filtered = mediaData.filter(item => {
+        const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.genres.some(g => g.toLowerCase().includes(searchQuery.toLowerCase()));
+
+        const matchesAura = (currentAura === 'All') || (item.aura === currentAura);
+        const matchesType = (currentType === 'All') || (item.type === currentType);
+
+        return matchesSearch && matchesAura && matchesType;
+      });
+
+      resultCountBadge.textContent = `${filtered.length} media ditemukan`;
+      resultCountBadge.className = 'text-xs font-mono text-cyan-400 bg-cyan-950/60 border border-cyan-800/60 px-2.5 py-0.5 rounded-full';
+
+      renderCards(filtered);
+    }
+
+    function renderCards(items) {
+      if (items.length === 0) {
+        vibeGrid.classList.add('hidden');
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+      vibeGrid.classList.remove('hidden');
+
+      const cardsHtml = items.map(item => {
+        let auraColorClass = 'bg-indigo-500/15 border border-indigo-500/30 text-indigo-300';
+        let auraIcon = 'fa-wand-magic-sparkles';
+        if (item.aura === 'High Energy') {
+          auraColorClass = 'bg-amber-500/15 border border-amber-500/30 text-amber-300';
+          auraIcon = 'fa-bolt';
+        } else if (item.aura === 'Melancholy') {
+          auraColorClass = 'bg-sky-500/15 border border-sky-500/30 text-sky-300';
+          auraIcon = 'fa-cloud-rain';
+        } else if (item.aura === 'Binge Mode') {
+          auraColorClass = 'bg-pink-500/15 border border-pink-500/30 text-pink-300';
+          auraIcon = 'fa-fire';
+        } else if (item.aura === 'Chill Vibes') {
+          auraColorClass = 'bg-emerald-500/15 border border-emerald-500/30 text-emerald-300';
+          auraIcon = 'fa-mug-hot';
+        }
+
+        const typeIcon = item.type === 'Anime' ? 'fa-tv text-pink-400' : (item.type === 'Manga' ? 'fa-book-open text-sky-400' : 'fa-film text-amber-400');
+
+        return `
+          <article class="vibe-card bg-[#111827] border border-slate-800/80 hover:border-indigo-500/70 hover:shadow-[0_0_25px_-5px_rgba(99,102,241,0.35)] hover:scale-[1.03] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 flex flex-col justify-between group" data-id="${item.id}">
+            <div>
+              <figure class="relative aspect-video overflow-hidden bg-slate-900">
+                <img 
+                  src="${item.image}" 
+                  alt="${item.title}" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                >
+                <div class="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/40 to-transparent pointer-events-none"></div>
+                <div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+                  <span class="px-2 py-0.5 text-[10px] font-medium rounded-md bg-slate-950/75 backdrop-blur-md border border-white/10 text-slate-200 flex items-center gap-1">
+                    <i class="fa-solid ${typeIcon}"></i> ${item.type}
+                  </span>
+                  <span class="px-2 py-0.5 text-[10px] font-medium rounded-md backdrop-blur-md ${auraColorClass} flex items-center gap-1">
+                    <i class="fa-solid ${auraIcon}"></i> ${item.aura}
+                  </span>
+                </div>
+
+                <div class="absolute top-2.5 right-2.5">
+                  <span class="px-2 py-0.5 text-[10px] font-semibold rounded-md bg-slate-950/75 text-amber-400 flex items-center gap-1 backdrop-blur-md border border-white/10">
+                    <i class="fa-solid fa-star text-[9px]"></i> ${item.rating}
+                  </span>
+                </div>
+              </figure>
+
+              <div class="p-4 space-y-2">
+                <div class="flex flex-wrap gap-1">
+                  ${item.genres.slice(0, 3).map(g => `
+                    <span class="text-[10px] px-2 py-0.5 rounded-md bg-slate-800/60 border border-slate-700/50 text-slate-400 font-medium">${g}</span>
+                  `).join('')}
+                </div>
+
+                <h2 class="text-base font-bold text-white group-hover:text-indigo-400 transition-colors line-clamp-1" title="${item.title}">
+                  ${item.title}
+                </h2>
+
+                <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed">
+                  ${item.synopsis}
+                </p>
+              </div>
+            </div>
+
+            <div class="p-4 pt-0 border-t border-slate-800/80 flex items-center justify-between mt-3">
+              <span class="text-[11px] text-slate-500 font-mono">${item.episodes}</span>
+              <button 
+                type="button" 
+                class="view-detail-btn px-3 py-1.5 rounded-lg bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white border border-indigo-500/30 hover:border-transparent font-medium text-xs transition-colors flex items-center gap-1.5"
+                data-id="${item.id}"
+              >
+                <span>Lihat Detail</span>
+                <i class="fa-solid fa-chevron-right text-[10px]"></i>
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      vibeGrid.innerHTML = cardsHtml;
+
+      document.querySelectorAll('.view-detail-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-id');
+          openDetailModal(id);
+        });
+      });
+    }
+
+    function openDetailModal(id) {
+      const item = mediaData.find(m => String(m.id) === String(id));
+      if (!item) return;
+
+      modalImage.src = item.image;
+      modalImage.alt = item.title;
+      modalTitle.textContent = item.title;
+      modalTypeBadge.textContent = item.type;
+      modalAuraBadge.textContent = `Aura: ${item.aura}`;
+      modalEpisodes.textContent = `${item.episodes} • Tahun ${item.year}`;
+      modalRating.innerHTML = `<i class="fa-solid fa-star"></i> ${item.rating} / 10`;
+      modalSynopsis.textContent = item.synopsis;
+
+      modalGenres.innerHTML = item.genres.map(g => `
+        <span class="text-xs px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">${g}</span>
+      `).join('');
+
+      detailModal.classList.remove('hidden');
+    }
+
+    function closeDetailModal() {
+      detailModal.classList.add('hidden');
+    }
+
+    unifiedSearch.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim();
+
+      if (searchQuery.length > 0) {
+        clearSearchBtn.classList.remove('hidden');
+      } else {
+        clearSearchBtn.classList.add('hidden');
+      }
+
+      applyFiltersAndRender();
+    });
+
+    clearSearchBtn.addEventListener('click', () => {
+      unifiedSearch.value = '';
+      searchQuery = '';
+      clearSearchBtn.classList.add('hidden');
+      applyFiltersAndRender();
+    });
+
+    auraButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        auraButtons.forEach(b => {
+          b.classList.remove('active', 'bg-indigo-600', 'text-white', 'shadow-md');
+          b.classList.add('bg-[#1A2333]', 'text-slate-300');
+        });
+
+        btn.classList.add('active', 'bg-indigo-600', 'text-white', 'shadow-md');
+        btn.classList.remove('bg-[#1A2333]', 'text-slate-300');
+
+        currentAura = btn.getAttribute('data-aura');
+        applyFiltersAndRender();
+      });
+    });
+
+    typeFilter.addEventListener('change', (e) => {
+      currentType = e.target.value;
+      applyFiltersAndRender();
+    });
+
+    refreshBtn.addEventListener('click', () => {
+      fetchMediaData();
+    });
+
+    function updateDevErrorUI(isError) {
+      if (isError) {
+        devErrorIndicator.textContent = 'ON';
+        devErrorIndicator.className = 'px-2 py-0.5 rounded text-[10px] font-semibold bg-rose-500 text-white';
+        devStatusDot.className = 'w-2 h-2 rounded-full bg-rose-500';
+        toggleErrorBtn.classList.add('border-rose-500/50', 'bg-rose-950/40');
+      } else {
+        devErrorIndicator.textContent = 'OFF';
+        devErrorIndicator.className = 'px-2 py-0.5 rounded text-[10px] font-semibold bg-slate-700/60 text-slate-400';
+        devStatusDot.className = 'w-2 h-2 rounded-full bg-emerald-400';
+        toggleErrorBtn.classList.remove('border-rose-500/50', 'bg-rose-950/40');
+      }
+    }
+
+    retryBtn.addEventListener('click', () => {
+      simulateError = false;
+      updateDevErrorUI(false);
+      fetchMediaData();
+    });
+
+    toggleErrorBtn.addEventListener('click', () => {
+      simulateError = !simulateError;
+      updateDevErrorUI(simulateError);
+      fetchMediaData();
+    });
+
+    devDrawerToggleBtn.addEventListener('click', () => {
+      devDrawerPanel.classList.toggle('hidden');
+    });
+
+    closeDevDrawerBtn.addEventListener('click', () => {
+      devDrawerPanel.classList.add('hidden');
+    });
+
+    devRefreshBtn.addEventListener('click', () => {
+      fetchMediaData();
+    });
+
+    resetFilterBtn.addEventListener('click', () => {
+      unifiedSearch.value = '';
+      searchQuery = '';
+      currentType = 'All';
+      typeFilter.value = 'All';
+      clearSearchBtn.classList.add('hidden');
+
+      auraButtons.forEach(b => {
+        b.classList.remove('active', 'bg-indigo-600', 'text-white');
+        b.classList.add('bg-[#1A2333]', 'text-slate-300');
+      });
+      auraButtons[0].classList.add('active', 'bg-indigo-600', 'text-white');
+      currentAura = 'All';
+
+      applyFiltersAndRender();
+    });
+
+    closeModalBtn.addEventListener('click', closeDetailModal);
+    detailModal.addEventListener('click', (e) => {
+      if (e.target === detailModal) closeDetailModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !detailModal.classList.contains('hidden')) {
+        closeDetailModal();
+      }
+    });
+
+    const openRequestModalBtn = document.getElementById('openRequestModalBtn');
+    const requestMediaModal = document.getElementById('requestMediaModal');
+    const closeReqModalBtn = document.getElementById('closeReqModalBtn');
+    const requestForm = document.getElementById('requestForm');
+    const reqSubmitBtn = document.getElementById('reqSubmitBtn');
+    const reqBtnIcon = document.getElementById('reqBtnIcon');
+    const reqBtnText = document.getElementById('reqBtnText');
+    const reqErrorAlert = document.getElementById('reqErrorAlert');
+    const reqErrorMessage = document.getElementById('reqErrorMessage');
+
+    const reqTitle = document.getElementById('reqTitle');
+    const reqTitleError = document.getElementById('reqTitleError');
+    const reqType = document.getElementById('reqType');
+    const reqTypeError = document.getElementById('reqTypeError');
+    const reqAura = document.getElementById('reqAura');
+    const reqAuraError = document.getElementById('reqAuraError');
+    const reqRating = document.getElementById('reqRating');
+    const reqRatingError = document.getElementById('reqRatingError');
+    const reqEmail = document.getElementById('reqEmail');
+    const reqEmailError = document.getElementById('reqEmailError');
+    const reqSynopsis = document.getElementById('reqSynopsis');
+    const reqSynopsisError = document.getElementById('reqSynopsisError');
+
+    if (openRequestModalBtn) {
+      openRequestModalBtn.addEventListener('click', () => {
+        requestMediaModal.classList.remove('hidden');
+        reqErrorAlert.classList.add('hidden');
+        reqTitle.focus();
+      });
+    }
+
+    if (closeReqModalBtn) {
+      closeReqModalBtn.addEventListener('click', () => {
+        requestMediaModal.classList.add('hidden');
+      });
+    }
+
+    function validateReqTitle() {
+      const val = reqTitle.value.trim();
+      if (!val || val.length < 3) {
+        showReqError(reqTitle, reqTitleError, 'Judul media belum diisi! Minimal 3 karakter.');
+        return false;
+      }
+      clearReqError(reqTitle, reqTitleError);
+      return true;
+    }
+
+    function validateReqType() {
+      if (!reqType.value) {
+        showReqError(reqType, reqTypeError, 'Silakan pilih salah satu tipe media.');
+        return false;
+      }
+      clearReqError(reqType, reqTypeError);
+      return true;
+    }
+
+    function validateReqAura() {
+      if (!reqAura.value) {
+        showReqError(reqAura, reqAuraError, 'Silakan pilih kategori suasana hati (Aura).');
+        return false;
+      }
+      clearReqError(reqAura, reqAuraError);
+      return true;
+    }
+
+    function validateReqRating() {
+      const val = parseFloat(reqRating.value);
+      if (isNaN(val) || val < 1.0 || val > 10.0) {
+        showReqError(reqRating, reqRatingError, 'Rating tidak valid! Masukkan angka desimal antara 1.0 s.d 10.0.');
+        return false;
+      }
+      clearReqError(reqRating, reqRatingError);
+      return true;
+    }
+
+    function validateReqEmail() {
+      const val = reqEmail.value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!val || !emailRegex.test(val)) {
+        showReqError(reqEmail, reqEmailError, 'Format email pengusul tidak valid (contoh: user@gmail.com).');
+        return false;
+      }
+      clearReqError(reqEmail, reqEmailError);
+      return true;
+    }
+
+    function validateReqSynopsis() {
+      const val = reqSynopsis.value.trim();
+      if (!val || val.length < 10) {
+        showReqError(reqSynopsis, reqSynopsisError, `Sinopsis belum diisi atau terlalu singkat (minimal 10 karakter, saat ini ${val.length}).`);
+        return false;
+      }
+      clearReqError(reqSynopsis, reqSynopsisError);
+      return true;
+    }
+
+    function showReqError(inputEl, errorEl, msg) {
+      inputEl.classList.add('border-rose-500', 'bg-rose-950/10');
+      inputEl.classList.remove('border-[#1F293D]');
+      errorEl.textContent = msg;
+      errorEl.classList.remove('hidden');
+    }
+
+    function clearReqError(inputEl, errorEl) {
+      inputEl.classList.remove('border-rose-500', 'bg-rose-950/10');
+      inputEl.classList.add('border-[#1F293D]');
+      errorEl.classList.add('hidden');
+    }
+
+    reqTitle.addEventListener('input', validateReqTitle);
+    reqType.addEventListener('change', validateReqType);
+    reqAura.addEventListener('change', validateReqAura);
+    reqRating.addEventListener('input', validateReqRating);
+    reqEmail.addEventListener('input', validateReqEmail);
+    reqSynopsis.addEventListener('input', validateReqSynopsis);
+
+    if (requestForm) {
+      requestForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        reqErrorAlert.classList.add('hidden');
+
+        const valid = validateReqTitle() &
+          validateReqType() &
+          validateReqAura() &
+          validateReqRating() &
+          validateReqEmail() &
+          validateReqSynopsis();
+
+        if (!valid) return;
+
+        reqSubmitBtn.disabled = true;
+        reqSubmitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+        reqBtnIcon.className = 'fa-solid fa-spinner fa-spin';
+        reqBtnText.textContent = 'Memvalidasi & Mengunggah...';
+
+        try {
+          if (!navigator.onLine) {
+            throw new Error('Gagal menyimpan usulan! Anda sedang offline.');
+          }
+
+          await new Promise((resolve, reject) => {
+            setTimeout(() => {
+              if (simulateError || !navigator.onLine) {
+                reject(new Error('Gagal menyimpan usulan! Koneksi jaringan terputus.'));
+              } else {
+                resolve({ success: true });
+              }
+            }, 1200);
+          });
+
+          const newMediaItem = {
+            id: Date.now(),
+            title: reqTitle.value.trim(),
+            type: reqType.value,
+            aura: reqAura.value,
+            genres: [reqType.value, reqAura.value, 'User Request'],
+            rating: parseFloat(reqRating.value),
+            episodes: 'Baru Diajukan',
+            image: './1.jpeg',
+            synopsis: reqSynopsis.value.trim(),
+            status: 'Baru',
+            year: new Date().getFullYear()
+          };
+
+          mediaData.unshift(newMediaItem);
+          applyFiltersAndRender();
+
+          requestForm.reset();
+          requestMediaModal.classList.add('hidden');
+
+          reqSubmitBtn.disabled = false;
+          reqSubmitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+          reqBtnIcon.className = 'fa-solid fa-paper-plane';
+          reqBtnText.textContent = 'Tambahkan ke The Vibe Grid';
+
+          alert(`Sukses! Media "${newMediaItem.title}" berhasil ditambahkan ke The Vibe Grid.`);
+
+        } catch (err) {
+          reqSubmitBtn.disabled = false;
+          reqSubmitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+          reqBtnIcon.className = 'fa-solid fa-paper-plane';
+          reqBtnText.textContent = 'Tambahkan ke The Vibe Grid';
+
+          reqErrorMessage.textContent = err.message;
+          reqErrorAlert.classList.remove('hidden');
+        }
+      });
+    }
+
+    window.addEventListener('offline', () => {
+      mediaData = [];
+      showLoading(false);
+      showError(true, 'Koneksi jaringan terputus. Tidak dapat menampilkan data media.');
+    });
+
+    window.addEventListener('online', () => {
+      fetchMediaData();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchMediaData();
+    });
+  </script>
+</body>
+
+</html>

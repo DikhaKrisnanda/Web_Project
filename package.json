@@ -1,0 +1,26 @@
+{
+  "name": "demo_web",
+  "version": "1.0.0",
+  "description": "FlipPlay Landing Page - Tugas Demo Praktikum Web",
+  "main": "src/index.html",
+  "scripts": {
+    "build": "npx @tailwindcss/cli -i ./src/main.css -o ./src/output.css",
+    "watch": "npx @tailwindcss/cli -i ./src/main.css -o ./src/output.css --watch"
+  },
+  "keywords": [
+    "tailwindcss",
+    "flipplay",
+    "demo-web"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "framer-motion": "^14.12.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwindcss": "^4.0.0"
+  }
+}

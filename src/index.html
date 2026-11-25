@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlipPlay - Next-Gen Entertainment Hub</title>
+  <meta name="description" content="FlipPlay mengintegrasikan layanan streaming video anime & drama serta digital reading manga & light novel dalam satu platform interaktif.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="./output.css">
+</head>
+<body class="bg-[#0B0F19] text-slate-100 font-sans antialiased selection:bg-indigo-600 selection:text-white">
+
+  
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#0B0F19]/85 backdrop-blur-md border-b border-[#1F293D] transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between" aria-label="Navigasi Utama FlipPlay">
+      
+      
+      <a href="#hero" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-lg p-1">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform duration-300">
+          <i class="fa-solid fa-play text-white text-sm ml-0.5"></i>
+        </div>
+        <div>
+          <span class="text-2xl font-extrabold tracking-tight text-white flex items-center">
+            Flip<span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-500">Play</span>
+          </span>
+          <span class="hidden sm:block text-[10px] uppercase tracking-wider text-slate-400 font-medium -mt-1">Stream & Read</span>
+        </div>
+      </a>
+
+      
+      <ul class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-medium text-slate-300">
+        <li>
+          <a href="#hero" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Beranda</a>
+        </li>
+        <li>
+          <a href="./vibe-grid.html" class="px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors flex items-center gap-1.5 font-medium">
+            <i class="fa-solid fa-sparkles text-indigo-400 text-xs"></i>
+            <span>The Vibe Grid</span>
+          </a>
+        </li>
+        <li>
+          <a href="#katalog" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Katalog</a>
+        </li>
+        <li>
+          <a href="./Content/anime.html" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors flex items-center gap-1.5">
+            <i class="fa-solid fa-tv text-pink-400 text-xs"></i>
+            <span>Anime</span>
+          </a>
+        </li>
+        <li>
+          <a href="./Content/manga.html" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors flex items-center gap-1.5">
+            <i class="fa-solid fa-book-open text-cyan-400 text-xs"></i>
+            <span>Manga</span>
+          </a>
+        </li>
+        <li>
+          <a href="./Content/drama.html" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors flex items-center gap-1.5">
+            <i class="fa-solid fa-film text-amber-400 text-xs"></i>
+            <span>Drama</span>
+          </a>
+        </li>
+        <li>
+          <a href="./Content/light-novel.html" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors flex items-center gap-1.5">
+            <i class="fa-solid fa-feather text-indigo-400 text-xs"></i>
+            <span>Light Novel</span>
+          </a>
+        </li>
+        <li>
+          <a href="#kontak" class="px-3 py-2 rounded-lg hover:text-white hover:bg-slate-800/60 transition-colors">Kontak</a>
+        </li>
+      </ul>
+
+      
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="#kontak" class="text-sm font-semibold text-slate-300 hover:text-white px-3 py-2 transition-colors">
+          Masuk
+        </a>
+        <a href="#katalog" class="px-4 py-2 rounded-xl text-sm font-medium bg-gradient-to-r from-indigo-600 via-indigo-500 to-pink-500 hover:opacity-95 text-white shadow-lg shadow-indigo-500/25 transition-all">
+          Coba Gratis
+        </a>
+      </div>
+
+      
+      <button id="mobileMenuBtn" type="button" class="md:hidden p-2.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500" aria-label="Menu Navigasi">
+        <i id="menuIcon" class="fa-solid fa-bars text-xl"></i>
+      </button>
+
+    </nav>
+
+    
+    <div id="mobileMenu" class="hidden md:hidden border-t border-[#1F293D] bg-[#0B0F19]/95 backdrop-blur-xl px-4 pt-3 pb-6 space-y-2">
+      <ul class="space-y-1 text-base font-medium text-slate-300">
+        <li><a href="#hero" class="mobile-link block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white">Beranda</a></li>
+        <li><a href="./vibe-grid.html" class="mobile-link block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white text-indigo-300 font-medium"><i class="fa-solid fa-sparkles text-indigo-400 mr-2"></i>The Vibe Grid</a></li>
+        <li><a href="#katalog" class="mobile-link block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white">Katalog Ringkas</a></li>
+        <li><a href="./Content/anime.html" class="mobile-link block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white text-pink-400 font-semibold"><i class="fa-solid fa-tv mr-2"></i>Katalog Anime</a></li>
+        <li><a href="./Content/manga.html" class="mobile-link block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white text-cyan-400 font-semibold"><i class="fa-solid fa-book-open mr-2"></i>Katalog Manga</a></li>
+        <li><a href="./Content/drama.html" class="mobile-link block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white text-amber-400 font-semibold"><i class="fa-solid fa-film mr-2"></i>Katalog Drama</a></li>
+        <li><a href="./Content/light-novel.html" class="mobile-link block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white text-indigo-400 font-semibold"><i class="fa-solid fa-feather mr-2"></i>Katalog Light Novel</a></li>
+        <li><a href="#kontak" class="mobile-link block px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white">Hubungi Kami</a></li>
+      </ul>
+    </div>
+  </header>
+
+  
+  <main class="pt-20">
+
+    
+    <section id="hero" class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28">
+      
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-gradient-to-tr from-indigo-600/30 via-indigo-600/20 to-pink-500/20 blur-[130px] rounded-full pointer-events-none -z-10"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+        
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/80 text-xs sm:text-sm text-slate-300">
+              <span class="flex h-2 w-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              <span class="font-semibold text-white">FlipPlay v1.0 Release</span>
+              <span class="text-slate-500">•</span>
+              <span>Streaming & Digital Reading</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
+              Nikmati Anime, Drama, <br class="hidden sm:inline">
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-indigo-500 to-pink-500">Manga & Novel Terpadu.</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              Platform hiburan digital generasi baru. Tonton anime dan drama dalam resolusi 4K, lalu lanjutkan membaca kelanjutan ceritanya di manga atau light novel secara instan tanpa berpindah aplikasi.
+            </p>
+
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+              <a href="./vibe-grid.html" class="w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-indigo-600 via-pink-600 to-amber-500 hover:opacity-95 shadow-lg shadow-indigo-500/25 transition-all flex items-center justify-center gap-2">
+                <i class="fa-solid fa-bolt text-amber-300"></i>
+                <span>Buka The Vibe Grid (Modul 2)</span>
+              </a>
+              <a href="#katalog" class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-semibold text-slate-300 bg-[#111827] border border-[#1F293D] hover:bg-slate-800 hover:text-white transition-all flex items-center justify-center gap-2">
+                <i class="fa-solid fa-layer-group text-indigo-400"></i>
+                <span>Jelajahi Katalog</span>
+              </a>
+            </div>
+
+            
+            <div class="pt-6 border-t border-slate-800/80 grid grid-cols-3 gap-4 text-center lg:text-left">
+              <div>
+                <p class="text-2xl sm:text-3xl font-extrabold text-white">10K+</p>
+                <p class="text-xs sm:text-sm text-slate-400">Anime & Drama</p>
+              </div>
+              <div>
+                <p class="text-2xl sm:text-3xl font-extrabold text-white">50K+</p>
+                <p class="text-xs sm:text-sm text-slate-400">Manga & Novel</p>
+              </div>
+              <div>
+                <p class="text-2xl sm:text-3xl font-extrabold text-cyan-400">4.9/5</p>
+                <p class="text-xs sm:text-sm text-slate-400">Rating Komunitas</p>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="lg:col-span-5 relative">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              
+              <article class="relative bg-[#111827] border border-[#1F293D] rounded-2xl p-4 sm:p-5 shadow-2xl space-y-4">
+                
+                <div class="flex items-center justify-between border-b border-[#1F293D] pb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+                  </div>
+                  <span class="text-xs font-mono text-slate-400 bg-slate-800/80 px-2.5 py-0.5 rounded">flipplay.app/stream</span>
+                </div>
+
+                
+                <figure class="relative rounded-xl overflow-hidden group">
+                  <img src="./1.jpeg" alt="Naruto Shippuden Showcase" class="w-full h-56 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-4">
+                    <span class="px-2.5 py-1 text-xs font-bold bg-pink-600 text-white rounded-md inline-block w-max mb-1">
+                      <i class="fa-solid fa-tv mr-1"></i> Paling Banyak Ditonton
+                    </span>
+                    <h3 class="text-white font-bold text-lg">Naruto Shippuden</h3>
+                    <p class="text-xs text-slate-300">Streaming Episode 500 (Tamat) • Tersedia Manga Chapter 700</p>
+                  </div>
+                </figure>
+
+                
+                <div class="bg-[#1A2333] border border-slate-700/60 rounded-xl p-3 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-bold text-lg border border-indigo-500/30">
+                      <i class="fa-solid fa-arrows-rotate"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs text-slate-400">Sinkronisasi Episode & Chapter</p>
+                      <h4 class="text-sm font-semibold text-white">Lanjut Baca di Manga</h4>
+                    </div>
+                  </div>
+                  <a href="./Content/manga.html" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition-colors">
+                    Buka <i class="fa-solid fa-arrow-right ml-1"></i>
+                  </a>
+                </div>
+
+              </article>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="katalog" class="py-20 bg-[#111827]/40 border-y border-[#1F293D]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header -->
+        <header class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+          <span class="px-3 py-1 text-xs font-semibold text-indigo-400 bg-indigo-500/10 rounded-full border border-indigo-500/20 uppercase tracking-wider">
+            Koleksi Unggulan
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Jelajahi Berdasarkan Kategori Favorit
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base">
+            Klik kategori di bawah untuk membuka halaman katalog lengkap yang telah dipisahkan ke dalam modul khusus.
+          </p>
+        </header>
+
+        <!-- Category Navigator Cards (4 Pillar Cards) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          
+          <!-- Category Card 1: Anime -->
+          <article class="bg-[#111827] border border-[#1F293D] hover:border-pink-500/60 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-tv"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors">Anime Streaming</h3>
+              <p class="text-sm text-slate-400 leading-relaxed mb-4">
+                Tonton serial anime aksi, sci-fi, isekai, hingga romance beresolusi 4K dengan takarir Bahasa Indonesia resmi.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="px-2 py-0.5 text-[11px] bg-slate-800 text-slate-300 rounded">Simulcast</span>
+                <span class="px-2 py-0.5 text-[11px] bg-slate-800 text-slate-300 rounded">Sub Indo</span>
+                <span class="px-2 py-0.5 text-[11px] bg-slate-800 text-slate-300 rounded">4K UHD</span>
+              </div>
+            </div>
+            <a href="./Content/anime.html" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-pink-600/20 hover:bg-pink-600 text-pink-300 hover:text-white font-semibold text-xs border border-pink-500/30 transition-all">
+              <span>Buka Katalog Anime</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <!-- Category Card 2: Manga -->
+          <article class="bg-[#111827] border border-[#1F293D] hover:border-cyan-500/60 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-book-open"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Digital Manga</h3>
+              <p class="text-sm text-slate-400 leading-relaxed mb-4">
+                Baca manga dan manhwa favorit dengan reader berkecepatan tinggi, zoom lancar, dan mode gulir vertikal.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="px-2 py-0.5 text-[11px] bg-slate-800 text-slate-300 rounded">Webtoon</span>
+                <span class="px-2 py-0.5 text-[11px] bg-slate-800 text-slate-300 rounded">HD Panel</span>
+                <span class="px-2 py-0.5 text-[11px] bg-slate-800 text-slate-300 rounded">Update Harian</span>
+              </div>
+            </div>
+            <a href="./Content/manga.html" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-cyan-600/20 hover:bg-cyan-600 text-cyan-300 hover:text-white font-semibold text-xs border border-cyan-500/30 transition-all">
+              <span>Buka Katalog Manga</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <!-- Category Card 3: Drama -->
+          <article class="bg-[#111827] border border-[#1F293D] hover:border-amber-500/60 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-film"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Drama Asia</h3>
+              <p class="text-sm text-slate-400 leading-relaxed mb-4">
+                Koleksi K-Drama dan J-Drama paling dinanti, dari kisah romansa menyentuh hati hingga thriller menegangkan.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="px-2 py-0.5 text-[11px] bg-slate-800 text-slate-300 rounded">K-Drama</span>
+                <span class="px-2 py-0.5 text-[11px] bg-slate-800 text-slate-300 rounded">J-Drama</span>
+                <span class="px-2 py-0.5 text-[11px] bg-slate-800 text-slate-300 rounded">Full HD</span>
+              </div>
+            </div>
+            <a href="./Content/drama.html" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-amber-600/20 hover:bg-amber-600 text-amber-300 hover:text-white font-semibold text-xs border border-amber-500/30 transition-all">
+              <span>Buka Katalog Drama</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <!-- Category Card 4: Light Novel -->
+          <article class="bg-[#111827] border border-[#1F293D] hover:border-indigo-500/60 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-feather"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Light Novel</h3>
+              <p class="text-sm text-slate-400 leading-relaxed mb-4">
+                Selami imajinasi mendalam melalui novel terjemahan resmi berilustrasi karya kreator ternama Jepang dan Korea.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="px-2 py-0.5 text-[11px] bg-slate-800 text-slate-300 rounded">Original Story</span>
+                <span class="px-2 py-0.5 text-[11px] bg-slate-800 text-slate-300 rounded">Ilustrasi</span>
+                <span class="px-2 py-0.5 text-[11px] bg-slate-800 text-slate-300 rounded">Offline</span>
+              </div>
+            </div>
+            <a href="./Content/light-novel.html" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-indigo-600/20 hover:bg-indigo-600 text-indigo-300 hover:text-white font-semibold text-xs border border-indigo-500/30 transition-all">
+              <span>Buka Light Novel</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+        </div>
+
+       
+        <div class="border-t border-[#1F293D] pt-12">
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h3 class="text-2xl font-bold text-white">Kartu Konten Pilihan Minggu Ini</h3>
+              <p class="text-xs sm:text-sm text-slate-400">Cuplikan judul terpopuler dari seluruh katalog FlipPlay.</p>
+            </div>
+            <a href="./Content/anime.html" class="text-xs sm:text-sm font-semibold text-indigo-400 hover:text-white flex items-center gap-1.5">
+              <span>Lihat Semua</span>
+              <i class="fa-solid fa-chevron-right text-xs"></i>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Trending Card 1: Naruto Shippuden -->
+            <article class="bg-[#111827] border border-[#1F293D] rounded-2xl overflow-hidden hover:border-pink-500/60 transition-all duration-300 group">
+              <figure class="relative aspect-video overflow-hidden">
+                <img src="./1.jpeg" alt="Naruto Shippuden Poster" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 text-[10px] font-bold bg-pink-600 text-white rounded">Anime Shonen</span>
+                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 text-[10px] font-bold bg-black/70 text-amber-400 rounded"><i class="fa-solid fa-star mr-1"></i>9.9</span>
+              </figure>
+              <div class="p-4 space-y-2">
+                <h4 class="text-base font-bold text-white group-hover:text-pink-400 transition-colors">Naruto Shippuden</h4>
+                <p class="text-xs text-slate-400 line-clamp-2">Perjalanan Uzumaki Naruto menguasai cakra Kyuubi demi melindungi desa Konoha dan membawa pulang Sasuke.</p>
+                <div class="pt-2 flex items-center justify-between border-t border-slate-800">
+                  <span class="text-[11px] text-slate-400 font-mono">500 Episode (Lengkap)</span>
+                  <a href="./Content/anime.html" class="text-xs font-semibold text-pink-400 hover:text-white">Tonton &rarr;</a>
+                </div>
+              </div>
+            </article>
+
+           
+            <article class="bg-[#111827] border border-[#1F293D] rounded-2xl overflow-hidden hover:border-cyan-500/60 transition-all duration-300 group">
+              <figure class="relative aspect-video overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=700&q=80" alt="Shadow Leveling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 text-[10px] font-bold bg-cyan-600 text-white rounded">Manga</span>
+                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 text-[10px] font-bold bg-black/70 text-amber-400 rounded"><i class="fa-solid fa-star mr-1"></i>9.7</span>
+              </figure>
+              <div class="p-4 space-y-2">
+                <h4 class="text-base font-bold text-white group-hover:text-cyan-400 transition-colors">Shadow Monarch Academy</h4>
+                <p class="text-xs text-slate-400 line-clamp-2">Pembangkitan kekuatan bayangan terlarang untuk menaklukkan dungeon tingkat S.</p>
+                <div class="pt-2 flex items-center justify-between border-t border-slate-800">
+                  <span class="text-[11px] text-slate-400 font-mono">Ch. 128 (Baru)</span>
+                  <a href="./Content/manga.html" class="text-xs font-semibold text-cyan-400 hover:text-white">Baca &rarr;</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Trending Card 3 -->
+            <article class="bg-[#111827] border border-[#1F293D] rounded-2xl overflow-hidden hover:border-amber-500/60 transition-all duration-300 group">
+              <figure class="relative aspect-video overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80" alt="Seoul Romance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 text-[10px] font-bold bg-amber-500 text-slate-900 rounded">K-Drama</span>
+                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 text-[10px] font-bold bg-black/70 text-amber-400 rounded"><i class="fa-solid fa-star mr-1"></i>9.1</span>
+              </figure>
+              <div class="p-4 space-y-2">
+                <h4 class="text-base font-bold text-white group-hover:text-amber-400 transition-colors">Seoul Midnight Melodies</h4>
+                <p class="text-xs text-slate-400 line-clamp-2">Pertemuan tak terduga antara dua musisi jalanan di gemerlap malam kota Seoul.</p>
+                <div class="pt-2 flex items-center justify-between border-t border-slate-800">
+                  <span class="text-[11px] text-slate-400 font-mono">16 Episode</span>
+                  <a href="./Content/drama.html" class="text-xs font-semibold text-amber-400 hover:text-white">Tonton &rarr;</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Trending Card 4 -->
+            <article class="bg-[#111827] border border-[#1F293D] rounded-2xl overflow-hidden hover:border-indigo-500/60 transition-all duration-300 group">
+              <figure class="relative aspect-video overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=700&q=80" alt="Alchemist Novel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 text-[10px] font-bold bg-indigo-600 text-white rounded">Light Novel</span>
+                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 text-[10px] font-bold bg-black/70 text-amber-400 rounded"><i class="fa-solid fa-star mr-1"></i>9.5</span>
+              </figure>
+              <div class="p-4 space-y-2">
+                <h4 class="text-base font-bold text-white group-hover:text-indigo-400 transition-colors">Whispers of the Alchemist</h4>
+                <p class="text-xs text-slate-400 line-clamp-2">Perjalanan sang peracik ramuan rahasia melintasi tujuh benua antariksa magis.</p>
+                <div class="pt-2 flex items-center justify-between border-t border-slate-800">
+                  <span class="text-[11px] text-slate-400 font-mono">Vol. 6 (Tersedia)</span>
+                  <a href="./Content/light-novel.html" class="text-xs font-semibold text-indigo-400 hover:text-white">Baca &rarr;</a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  
+    <section id="kontak" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Contact Aside -->
+          <aside class="lg:col-span-5 space-y-6">
+            <span class="px-3 py-1 text-xs font-semibold text-pink-400 bg-pink-500/10 rounded-full border border-pink-500/20 uppercase tracking-wider">
+              Hubungi Kami
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Punya Masukan atau Pertanyaan?
+            </h2>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Tim pengembang FlipPlay siap menerima kritik, saran, permohonan judul baru, atau laporan kendala teknis Anda.
+            </p>
+
+            <div class="space-y-4 pt-2">
+              <div class="flex items-center gap-4 p-4 rounded-2xl bg-[#111827] border border-[#1F293D]">
+                <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-lg">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs text-slate-400">Email Dukungan</h4>
+                  <p class="text-sm font-semibold text-white">support@flipplay.app</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 p-4 rounded-2xl bg-[#111827] border border-[#1F293D]">
+                <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-lg">
+                  <i class="fa-brands fa-discord"></i>
+                </div>
+                <div>
+                  <h4 class="text-xs text-slate-400">Komunitas Discord</h4>
+                  <p class="text-sm font-semibold text-white">discord.gg/flipplay</p>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Semantic Contact Form dengan Validasi, Loading State & Error Message -->
+          <div class="lg:col-span-7">
+            <div class="bg-[#111827] border border-[#1F293D] rounded-3xl p-6 sm:p-8 shadow-2xl relative">
+              
+              <!-- Error Banner (Error message apabila pengambilan/pengiriman data gagal) -->
+              <div id="formErrorAlert" class="hidden mb-6 p-4 rounded-2xl bg-rose-950/40 border border-rose-500/50 text-rose-300 text-xs sm:text-sm flex items-start gap-3 animate-in fade-in">
+                <i class="fa-solid fa-circle-exclamation text-rose-400 text-lg flex-shrink-0 mt-0.5"></i>
+                <div class="flex-1 space-y-1">
+                  <h4 class="font-bold text-white">Gagal Mengirim Data!</h4>
+                  <p id="formErrorMessage">Terjadi kendala koneksi ke server saat memproses formulir. Silakan periksa jaringan Anda.</p>
+                  <button type="button" id="formRetryBtn" class="mt-2 text-xs font-bold text-rose-400 hover:text-white underline inline-block">
+                    &rarr; Coba Kirim Ulang
+                  </button>
+                </div>
+              </div>
+
+              
+              <div class="mb-4 flex items-center justify-between text-xs pb-3 border-b border-slate-800">
+                <span class="text-slate-400 flex items-center gap-1.5">
+                  <i class="fa-solid fa-shield-halved text-cyan-400"></i>
+                  <span>Validasi Input & State Simulator</span>
+                </span>
+                <button type="button" id="toggleFormErrorSim" class="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 transition-colors">
+                  <i class="fa-solid fa-bug mr-1"></i> Mode Gagal: <span id="simErrorLabel">OFF</span>
+                </button>
+              </div>
+
+              <form id="contactForm" class="space-y-4" novalidate>
+                <fieldset class="space-y-4">
+                  <legend class="text-xl font-bold text-white mb-2 pb-2 border-b border-[#1F293D] w-full flex items-center justify-between">
+                    <span>Kirim Pesan / Feedback</span>
+                    <span class="text-xs font-normal text-slate-400">* Wajib diisi</span>
+                  </legend>
+
+                  <!-- Row 1: Nama & Email -->
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label for="fullName" class="block text-xs font-semibold text-slate-300 mb-1">
+                        Nama Lengkap <span class="text-rose-400">*</span>
+                      </label>
+                      <input 
+                        type="text" 
+                        id="fullName" 
+                        placeholder="Contoh: Budi Santoso" 
+                        class="w-full px-4 py-2.5 bg-[#1A2333] border border-[#1F293D] focus:border-indigo-500 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none transition-colors"
+                      >
+                      <!-- Pesan Peringatan Input Nama -->
+                      <p id="nameError" class="hidden text-xs text-rose-400 mt-1 flex items-center gap-1">
+                        <i class="fa-solid fa-circle-exclamation text-[11px]"></i>
+                        <span>Nama lengkap wajib diisi minimal 3 karakter.</span>
+                      </p>
+                    </div>
+
+                    <div>
+                      <label for="email" class="block text-xs font-semibold text-slate-300 mb-1">
+                        Alamat Email <span class="text-rose-400">*</span>
+                      </label>
+                      <input 
+                        type="email" 
+                        id="email" 
+                        placeholder="nama@email.com" 
+                        class="w-full px-4 py-2.5 bg-[#1A2333] border border-[#1F293D] focus:border-indigo-500 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none transition-colors"
+                      >
+                      <!-- Pesan Peringatan Input Email -->
+                      <p id="emailError" class="hidden text-xs text-rose-400 mt-1 flex items-center gap-1">
+                        <i class="fa-solid fa-circle-exclamation text-[11px]"></i>
+                        <span>Format email tidak valid (contoh: user@domain.com).</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Row 2: Subjek -->
+                  <div>
+                    <label for="subject" class="block text-xs font-semibold text-slate-300 mb-1">
+                      Subjek Pesan <span class="text-rose-400">*</span>
+                    </label>
+                    <input 
+                      type="text" 
+                      id="subject" 
+                      placeholder="Contoh: Permintaan lisensi anime Naruto Shippuden" 
+                      class="w-full px-4 py-2.5 bg-[#1A2333] border border-[#1F293D] focus:border-indigo-500 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none transition-colors"
+                    >
+                    <!-- Pesan Peringatan Input Subjek -->
+                    <p id="subjectError" class="hidden text-xs text-rose-400 mt-1 flex items-center gap-1">
+                      <i class="fa-solid fa-circle-exclamation text-[11px]"></i>
+                      <span>Subjek pesan belum diisi (minimal 4 karakter).</span>
+                    </p>
+                  </div>
+
+                  <!-- Row 3: Isi Pesan -->
+                  <div>
+                    <label for="message" class="block text-xs font-semibold text-slate-300 mb-1">
+                      Isi Pesan <span class="text-rose-400">*</span>
+                    </label>
+                    <textarea 
+                      id="message" 
+                      rows="4" 
+                      placeholder="Tuliskan masukan, kendala, atau saran Anda di sini..." 
+                      class="w-full px-4 py-2.5 bg-[#1A2333] border border-[#1F293D] focus:border-indigo-500 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none transition-colors resize-none"
+                    ></textarea>
+                    <!-- Pesan Peringatan Input Pesan -->
+                    <p id="messageError" class="hidden text-xs text-rose-400 mt-1 flex items-center gap-1">
+                      <i class="fa-solid fa-circle-exclamation text-[11px]"></i>
+                      <span>Isi pesan belum diisi atau kurang panjang (minimal 10 karakter).</span>
+                    </p>
+                  </div>
+
+                  <!-- Checkbox Persetujuan -->
+                  <div>
+                    <div class="flex items-start gap-2.5">
+                      <input type="checkbox" id="agreement" class="mt-1 w-4 h-4 rounded bg-[#1A2333] border-[#1F293D] text-indigo-600 focus:ring-indigo-500">
+                      <label for="agreement" class="text-xs text-slate-300 cursor-pointer">
+                        Saya menyetujui Kebijakan Privasi FlipPlay dan bersedia menerima pembaruan informasi platform. <span class="text-rose-400">*</span>
+                      </label>
+                    </div>
+                    <!-- Pesan Peringatan Checkbox -->
+                    <p id="agreementError" class="hidden text-xs text-rose-400 mt-1 flex items-center gap-1">
+                      <i class="fa-solid fa-circle-exclamation text-[11px]"></i>
+                      <span>Anda wajib mencentang persetujuan kebijakan privasi.</span>
+                    </p>
+                  </div>
+
+                  <!-- Submit Button dengan Loading State -->
+                  <button 
+                    type="submit" 
+                    id="submitBtn" 
+                    class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-pink-500 hover:opacity-95 text-white font-bold text-sm shadow-lg shadow-indigo-500/25 transition-all flex items-center justify-center gap-2"
+                  >
+                    <i id="btnIcon" class="fa-solid fa-paper-plane"></i>
+                    <span id="btnText">Kirim Pesan Sekarang</span>
+                  </button>
+                </fieldset>
+              </form>
+
+              <!-- Success Feedback Modal / Toast -->
+              <div id="formSuccessToast" class="hidden absolute inset-0 bg-[#111827]/95 backdrop-blur-md rounded-3xl flex flex-col items-center justify-center p-6 text-center space-y-4 animate-in fade-in">
+                <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-3xl">
+                  <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">Pesan Berhasil Terkirim!</h3>
+                <p class="text-sm text-slate-300 max-w-sm">Data masukan Anda telah berhasil diproses oleh sistem FlipPlay. Tim kami akan segera menindaklanjuti dalam 1x24 jam.</p>
+                <button type="button" id="resetFormBtn" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition-colors">
+                  Kirim Pesan Baru
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       FOOTER (HTML SEMANTIK)
+  =========================================== -->
+  <footer class="bg-black border-t border-[#1F293D] pt-14 pb-10 text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-slate-800">
+        
+        <div class="space-y-3">
+          <span class="text-2xl font-extrabold text-white flex items-center">
+            Flip<span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-500">Play</span>
+          </span>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Platform hiburan terintegrasi: Streaming Anime & Drama, serta Digital Reading Manga & Light Novel.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-3">Modul Katalog</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="./Content/anime.html" class="hover:text-white transition-colors">Katalog Anime</a></li>
+            <li><a href="./Content/manga.html" class="hover:text-white transition-colors">Katalog Manga</a></li>
+            <li><a href="./Content/drama.html" class="hover:text-white transition-colors">Katalog Drama</a></li>
+            <li><a href="./Content/light-novel.html" class="hover:text-white transition-colors">Katalog Light Novel</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-3">Akses Cepat</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#hero" class="hover:text-white transition-colors">Beranda</a></li>
+            <li><a href="#katalog" class="hover:text-white transition-colors">Koleksi Unggulan</a></li>
+            <li><a href="#kontak" class="hover:text-white transition-colors">Form Kontak</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-3">Media Sosial</h4>
+          <div class="flex items-center gap-3">
+            <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-indigo-600 hover:text-white flex items-center justify-center text-slate-300 transition-colors"><i class="fa-brands fa-x-twitter text-xs"></i></a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-indigo-600 hover:text-white flex items-center justify-center text-slate-300 transition-colors"><i class="fa-brands fa-instagram text-xs"></i></a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-indigo-600 hover:text-white flex items-center justify-center text-slate-300 transition-colors"><i class="fa-brands fa-discord text-xs"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+        <p>&copy; 2026 FlipPlay Technologies Inc. Tugas Praktikum Web Demo.</p>
+        <p>Built with Semantic HTML & Tailwind CSS CLI</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 1. Mobile Drawer Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        menuIcon.classList.toggle('fa-bars');
+        menuIcon.classList.toggle('fa-xmark');
+      });
+    }
+
+    // 2. Form Elements
+    const contactForm = document.getElementById('contactForm');
+    const formSuccessToast = document.getElementById('formSuccessToast');
+    const resetFormBtn = document.getElementById('resetFormBtn');
+    const formErrorAlert = document.getElementById('formErrorAlert');
+    const formErrorMessage = document.getElementById('formErrorMessage');
+    const formRetryBtn = document.getElementById('formRetryBtn');
+    const toggleFormErrorSim = document.getElementById('toggleFormErrorSim');
+    const simErrorLabel = document.getElementById('simErrorLabel');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnIcon = document.getElementById('btnIcon');
+    const btnText = document.getElementById('btnText');
+
+    // Input Fields & Error Elements
+    const fullName = document.getElementById('fullName');
+    const nameError = document.getElementById('nameError');
+    const email = document.getElementById('email');
+    const emailError = document.getElementById('emailError');
+    const subject = document.getElementById('subject');
+    const subjectError = document.getElementById('subjectError');
+    const message = document.getElementById('message');
+    const messageError = document.getElementById('messageError');
+    const agreement = document.getElementById('agreement');
+    const agreementError = document.getElementById('agreementError');
+
+    // Simulator State
+    let isSimulateFormError = false;
+
+    if (toggleFormErrorSim) {
+      toggleFormErrorSim.addEventListener('click', () => {
+        isSimulateFormError = !isSimulateFormError;
+        simErrorLabel.textContent = isSimulateFormError ? 'ON' : 'OFF';
+        if (isSimulateFormError) {
+          toggleFormErrorSim.classList.remove('bg-rose-500/10', 'text-rose-400');
+          toggleFormErrorSim.classList.add('bg-rose-600', 'text-white');
+        } else {
+          toggleFormErrorSim.classList.add('bg-rose-500/10', 'text-rose-400');
+          toggleFormErrorSim.classList.remove('bg-rose-600', 'text-white');
+          formErrorAlert.classList.add('hidden');
+        }
+      });
+    }
+
+    // ==========================================
+    // VALIDASI FORM & PESAN PERINGATAN (Event Handling: input)
+    // ==========================================
+    function validateFullName() {
+      const val = fullName.value.trim();
+      if (!val) {
+        showInputError(fullName, nameError, 'Nama lengkap belum diisi! Wajib diisi.');
+        return false;
+      } else if (val.length < 3) {
+        showInputError(fullName, nameError, 'Nama terlalu pendek! Minimal 3 karakter.');
+        return false;
+      }
+      clearInputError(fullName, nameError);
+      return true;
+    }
+
+    function validateEmail() {
+      const val = email.value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!val) {
+        showInputError(email, emailError, 'Alamat email belum diisi! Wajib diisi.');
+        return false;
+      } else if (!emailRegex.test(val)) {
+        showInputError(email, emailError, 'Format email tidak valid! Harus mengandung @ dan domain (misal: user@gmail.com).');
+        return false;
+      }
+      clearInputError(email, emailError);
+      return true;
+    }
+
+    function validateSubject() {
+      const val = subject.value.trim();
+      if (!val) {
+        showInputError(subject, subjectError, 'Subjek pesan belum diisi! Wajib diisi.');
+        return false;
+      } else if (val.length < 4) {
+        showInputError(subject, subjectError, 'Subjek terlalu pendek! Minimal 4 karakter.');
+        return false;
+      }
+      clearInputError(subject, subjectError);
+      return true;
+    }
+
+    function validateMessage() {
+      const val = message.value.trim();
+      if (!val) {
+        showInputError(message, messageError, 'Isi pesan belum diisi! Wajib diisi.');
+        return false;
+      } else if (val.length < 10) {
+        showInputError(message, messageError, `Pesan baru ${val.length} karakter. Wajib minimal 10 karakter.`);
+        return false;
+      }
+      clearInputError(message, messageError);
+      return true;
+    }
+
+    function validateAgreement() {
+      if (!agreement.checked) {
+        agreementError.classList.remove('hidden');
+        return false;
+      }
+      agreementError.classList.add('hidden');
+      return true;
+    }
+
+    // Helper tampilan error
+    function showInputError(inputEl, errorEl, messageText) {
+      inputEl.classList.add('border-rose-500', 'focus:border-rose-500', 'bg-rose-950/10');
+      inputEl.classList.remove('border-[#1F293D]', 'focus:border-indigo-500');
+      errorEl.querySelector('span').textContent = messageText;
+      errorEl.classList.remove('hidden');
+    }
+
+    function clearInputError(inputEl, errorEl) {
+      inputEl.classList.remove('border-rose-500', 'focus:border-rose-500', 'bg-rose-950/10');
+      inputEl.classList.add('border-[#1F293D]', 'focus:border-indigo-500');
+      errorEl.classList.add('hidden');
+    }
+
+    // Real-time Event Handling: 'input' & 'change'
+    if (fullName) fullName.addEventListener('input', validateFullName);
+    if (email) email.addEventListener('input', validateEmail);
+    if (subject) subject.addEventListener('input', validateSubject);
+    if (message) message.addEventListener('input', validateMessage);
+    if (agreement) agreement.addEventListener('change', validateAgreement);
+
+    // ==========================================
+    // LOADING STATE & ERROR MESSAGE PADA SUBMIT (Event Handling: submit)
+    // ==========================================
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Sembunyikan alert error sebelumnya
+        formErrorAlert.classList.add('hidden');
+
+        // Jalankan seluruh fungsi validasi
+        const isNameValid = validateFullName();
+        const isEmailValid = validateEmail();
+        const isSubjectValid = validateSubject();
+        const isMessageValid = validateMessage();
+        const isAgreeValid = validateAgreement();
+
+        const isFormValid = isNameValid && isEmailValid && isSubjectValid && isMessageValid && isAgreeValid;
+
+        if (!isFormValid) {
+          // Scroll ke error pertama
+          const firstInvalid = contactForm.querySelector('.border-rose-500') || agreement;
+          if (firstInvalid) firstInvalid.focus();
+          return;
+        }
+
+        // --- 1. LOADING STATE SAAT DATA SEDANG DIAMBIL / DIKIRIM ---
+        setFormLoadingState(true);
+
+        try {
+          // Simulasi proses asynchronous network request (1.5 detik)
+          await new Promise((resolve, reject) => {
+            setTimeout(() => {
+              if (isSimulateFormError) {
+                reject(new Error('Gagal terhubung ke endpoint API server! HTTP 500 Internal Server Error (Koneksi Terputus).'));
+              } else {
+                resolve({ success: true, timestamp: new Date().toISOString() });
+              }
+            }, 1400);
+          });
+
+          // Sukses: matikan loading & tampilkan toast
+          setFormLoadingState(false);
+          formSuccessToast.classList.remove('hidden');
+
+        } catch (err) {
+          // --- 2. ERROR MESSAGE APABILA PENGAMBILAN / PENGIRIMAN DATA GAGAL ---
+          setFormLoadingState(false);
+          formErrorMessage.textContent = err.message || 'Terjadi kesalahan saat memproses data. Silakan coba lagi.';
+          formErrorAlert.classList.remove('hidden');
+        }
+      });
+    }
+
+    // Helper: Mengatur Loading State pada Formulir
+    function setFormLoadingState(isLoading) {
+      if (isLoading) {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+        btnIcon.className = 'fa-solid fa-spinner fa-spin';
+        btnText.textContent = 'Memproses & Mengirim Data...';
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+        btnIcon.className = 'fa-solid fa-paper-plane';
+        btnText.textContent = 'Kirim Pesan Sekarang';
+      }
+    }
+
+    // Retry Button Handler
+    if (formRetryBtn) {
+      formRetryBtn.addEventListener('click', () => {
+        isSimulateFormError = false;
+        if (toggleFormErrorSim) {
+          simErrorLabel.textContent = 'OFF';
+          toggleFormErrorSim.classList.add('bg-rose-500/10', 'text-rose-400');
+          toggleFormErrorSim.classList.remove('bg-rose-600', 'text-white');
+        }
+        formErrorAlert.classList.add('hidden');
+        contactForm.requestSubmit();
+      });
+    }
+
+    // Reset Form Handler
+    if (resetFormBtn) {
+      resetFormBtn.addEventListener('click', () => {
+        contactForm.reset();
+        formSuccessToast.classList.add('hidden');
+        formErrorAlert.classList.add('hidden');
+        clearInputError(fullName, nameError);
+        clearInputError(email, emailError);
+        clearInputError(subject, subjectError);
+        clearInputError(message, messageError);
+        agreementError.classList.add('hidden');
+      });
+    }
+  </script>
+</body>
+</html>
